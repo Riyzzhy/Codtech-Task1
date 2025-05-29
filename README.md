@@ -1,1 +1,13 @@
-# Codtech-Task1
+Name : PATEL RIYANSH BHAVESHBHAI
+
+Company : CODTECH IT SOLUTIONS
+
+ID : CT04DF487
+
+Domain : MACHINE LEARNING
+
+Duration Time : 24 MAY TO JUNE 2025
+
+Mentor Name : NEELA SANTHOSH KUMAR
+
+
