@@ -6,6 +6,7 @@ Duration Time : 24 MAY TO JUNE 2025
 Mentor Name : NEELA SANTHOSH KUMAR
 
 Overview about my Project
+
 Project: Anime Popularity Classification using the decision_Tree by visualization model.
 
 This project focuses on building a Decision Tree Classifier using the Anime dataset from Kaggle to predict whether an anime is Popular or Unpopular based on specific features. The primary goal is to demonstrate classification techniques using Scikit-Learn, along with effective data preprocessing, feature engineering, and visualization.
