@@ -1,0 +1,44 @@
+/*Explanation about my dataset and code*/
+/* 📊 Anime Popularity Classification using Decision Tree
+This project implements a Decision Tree Classifier using the Anime Dataset from Kaggle. The goal is to classify anime shows as Popular or Unpopular based on features like genre and rating. */
+
+
+import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.metrics import accuracy_score, classification_report
+import matplotlib.pyplot as plt
+from sklearn.model_selection import GridSearchCV
+
+anime = pd.read_csv("anime.csv")
+anime.head()
+
+anime.dropna(inplace=True)
+# Create binary classification target: Popular if members > 100,000
+anime['popularity'] = anime['members'].apply(lambda x: 'Popular' if x > 100000 else 'Unpopular')
+# Encode genre as a single feature (basic encoding for Decision Tree)
+anime['genre_code'] = anime['genre'].astype('category').cat.codes
+# Features and target
+features = ['genre_code', 'rating']
+X = anime[features]
+y = anime['popularity']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=0.3, random_state=42)
+
+clf = DecisionTreeClassifier(max_depth=5, random_state=42)
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+
+plt.figure(figsize=(20, 10))
+plot_tree(clf, feature_names=features, class_names=clf.classes_, filled=True, rounded=True)
+plt.title("Decision Tree for Anime Popularity")
+plt.show()
+
+params = {'max_depth': [3, 5, 7, 10], 'criterion': ['gini', 'entropy']}
+grid = GridSearchCV(DecisionTreeClassifier(random_state=42), param_grid=params, cv=5)
+grid.fit(X_train, y_train)
+print("Best Parameters:", grid.best_params_)
+print("Best Score:", grid.best_score_)
