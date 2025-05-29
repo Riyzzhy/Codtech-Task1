@@ -11,6 +11,7 @@ Project: Anime Popularity Classification using the decision_Tree by visualizatio
 
 This project focuses on building a Decision Tree Classifier using the Anime dataset from Kaggle to predict whether an anime is Popular or Unpopular based on specific features. The primary goal is to demonstrate classification techniques using Scikit-Learn, along with effective data preprocessing, feature engineering, and visualization.
 We use the anime.csv file, which contains metadata about anime shows including their genre, user rating, and the number of members who have interacted with the anime. The members feature is used as a key indicator of popularity.
+![image](https://github.com/user-attachments/assets/e82da776-67c7-4ef7-9c98-68997af92c37)
 
 🎯 Objectives
 Load and preprocess the Anime dataset.
